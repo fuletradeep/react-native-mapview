@@ -1,6 +1,5 @@
 apply plugin: "com.android.application"
-//apply plugin: "com.google.android.libraries.mapsplatform.secrets-gradle-plugin"
-
+apply plugin: "com.google.android.libraries.mapsplatform.secrets-gradle-plugin"
 import com.android.build.OutputFile
 
 /**
@@ -38,7 +37,7 @@ import com.android.build.OutputFile
  *   // bundleInBeta: true,
  *
  *   // whether to disable dev mode in custom build variants (by default only disabled in release)
- *   // for MapviewExample: to disable dev mode in the staging build type (if configured)
+ *   // for PlusinfosysExample: to disable dev mode in the staging build type (if configured)
  *   devDisabledInStaging: true,
  *   // The configuration property can be in the following formats
  *   //         'devDisabledIn${productFlavor}${buildType}'
@@ -65,7 +64,7 @@ import com.android.build.OutputFile
  *   // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
  *   // date; if you have any other folders that you want to ignore for performance reasons (gradle
  *   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
- *   // for MapviewExample, you might want to remove it from here.
+ *   // for PlusinfosysExample, you might want to remove it from here.
  *   inputExcludes: ["android/**", "ios/**"],
  *
  *   // override which node gets called and with what additional arguments
@@ -101,7 +100,7 @@ def enableProguardInReleaseBuilds = false
 /**
  * The preferred build flavor of JavaScriptCore.
  *
- * For MapviewExample, to use the international variant, you can use:
+ * For PlusinfosysExample, to use the international variant, you can use:
  * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`
  *
  * The international variant includes ICU i18n library and necessary data
@@ -129,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.reactnativemapview"
+        applicationId "com.example.plusinfosys"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -183,7 +182,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-
+  implementation 'com.google.android.gms:play-services-maps:17.0.1'
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
@@ -205,13 +204,13 @@ dependencies {
         implementation jscFlavor
     }
 
-    implementation project(':reactnativemapview')
+    implementation project(':plusinfosys')
 }
 
 // Run this once to be able to run the application with BUCK
 // puts all compile dependencies into folder libs for BUCK to use
 task copyDownloadableDepsToLibs(type: Copy) {
-    from configurations.compile
+
     into 'libs'
 }
 

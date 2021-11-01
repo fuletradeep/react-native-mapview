@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  MapviewExample
+//  PlusinfosysExample
 //
 
 import Foundation
