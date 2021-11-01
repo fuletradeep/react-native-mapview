@@ -4,23 +4,22 @@ import {
   Platform,
   ViewStyle,
 } from 'react-native';
+import RNMap from './RNMap'
 
-const LINKING_ERROR =
-  `The package 'react-native-mapview' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo managed workflow\n';
 
-type MapviewProps = {
-  color: string;
-  style: ViewStyle;
+
+var region = {
+  latitude: 37.78825,
+  longitude: -122.4324,
+  latitudeDelta: 0.1,
+  longitudeDelta: 0.1,
+  radius: 300,
 };
 
 const ComponentName = 'MapviewView';
 
-export const MapviewView =
-  UIManager.getViewManagerConfig(ComponentName) != null
-    ? requireNativeComponent<MapviewProps>(ComponentName)
-    : () => {
-        throw new Error(LINKING_ERROR);
+export const MapviewView = () => {
+       return(
+         <RNMap region={region} />
+       )
       };

@@ -1,27 +1,47 @@
-# react-native-mapview
+//Plusinfosys
 
-mapview
+#Android
+##Create a Native UI Map Component
 
-## Installation
+###Generate the api key
+ https://console.cloud.google.com/
 
-```sh
-npm install react-native-mapview
-```
+###Add the following
+ In build.gradle file of the project
 
-## Usage
+>classpath "com.android.tools.build:gradle:7.0.3"
+>classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.0"
 
-```js
-import { MapviewView } from "react-native-mapview";
+In **`build.gradle`** file of your app
 
-// ...
+At the top of the file
 
-<MapviewView color="tomato" />
-```
+>apply plugin 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
-## Contributing
+Add the dependency
+>implementation 'com.google.android.gms:play-services-maps:17.0.1'
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+In **`Manifest`** file
 
-## License
+Add before the `activity` tag
 
-MIT
+    <meta-data
+                	android:name="com.google.android.geo.API_KEY"
+                	android:value=“api_key_generated” />
+
+Add these permissons
+
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+In the gradle.wrapper.properties 
+>change the gradle version to 7.0.2
+
+####Make sure you have java 11 or greater in your app
+
+
+
+
+
+
